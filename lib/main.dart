@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/view/splash_screen.dart';
 
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

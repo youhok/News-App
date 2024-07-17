@@ -13,24 +13,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  
-void initState(){
-
-  super.initState();
- Timer(Duration(seconds: 2), (){
-  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
- });
-}
-
-
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height * 1;
-    final width = MediaQuery.sizeOf(context).width * 1;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Container(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -40,13 +40,19 @@ void initState(){
               width: width * .9,
               height: height * .5,
             ),
-            SizedBox(height: height * 0.04,),
-            Text("TOP HEADLINES" ,style: GoogleFonts.anton(letterSpacing:.6,color: Colors.grey.shade700 ),),
-             SizedBox(height: height * 0.04,),
-             SpinKitChasingDots(
+            SizedBox(height: height * 0.04),
+            Text(
+              "TOP HEADLINES",
+              style: GoogleFonts.anton(
+                letterSpacing: .6,
+                color: Colors.grey.shade700,
+              ),
+            ),
+            SizedBox(height: height * 0.04),
+            SpinKitChasingDots(
               color: Colors.blue,
               size: 40,
-             )
+            ),
           ],
         ),
       ),
